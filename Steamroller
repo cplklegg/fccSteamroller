@@ -1,0 +1,26 @@
+Flatten a nested array. You must account for varying levels of nesting.
+
+Remember to use Read-Search-Ask if you get stuck. Try to pair program. Write your own code.
+
+Here are some helpful links:
+
+Array.isArray()
+
+code:
+
+function steamrollArray(arr) {
+  var finArray = [];
+
+  var flatten = function(arg) {
+    if (!Array.isArray(arg)) {
+      finArray.push(arg);
+    } else {
+      for (var a in arg) {
+        flatten(arg[a]);
+      }
+    }
+  };
+  
+  arr.forEach(flatten);
+  return finArray;
+} 
